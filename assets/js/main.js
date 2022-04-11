@@ -1,15 +1,15 @@
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
+      navToggle = document.querySelector('.nav__toggle'),
       navClose = document.getElementById('nav-close')
 
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
 if(navToggle){
-    navToggle.addEventListener('click', () =>{
+
+}    navToggle.addEventListener('click', () =>{
         navMenu.classList.add('show-menu')
     })
-}
 
 /*===== MENU HIDDEN =====*/
 /* Validate if constant exists */
@@ -30,11 +30,10 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-
 /*=============== HOME SWIPER ===============*/
 
-let homeSwiper = new Swiper(".home-swiper", {
-    spaceBetween: 30,
+let activiteitenSwiper = new Swiper(".activiteiten-swiper", {
+    spaceBetween: 30, 
     loop: 'true',
 
     pagination: {
@@ -42,6 +41,7 @@ let homeSwiper = new Swiper(".home-swiper", {
       clickable: true
     },
   });
+
 
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
@@ -53,34 +53,7 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 
 
-/*=============== NEW SWIPER ===============*/
-let newSwiper = new Swiper(".new-swiper", {
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    spaceBetween: 16,
-    loop: 'true',
-  });
 
-
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
-
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
 
 /*=============== SHOW SCROLL UP ===============*/ 
 function scrollUp(){
